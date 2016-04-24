@@ -1,0 +1,131 @@
+<!DOCTYPE web-app PUBLIC
+ "-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN"
+ "http://java.sun.com/dtd/web-app_2_3.dtd" >
+
+<web-app>
+  <display-name>Archetype Created Web Application</display-name>
+
+  <!-- 配置全局的初始化参数 -->
+  <context-param>
+    <param-name>context_value</param-name>
+    <param-value>13579</param-value>
+  </context-param>
+
+  <servlet>
+    <servlet-name>QuickStart_Servlet</servlet-name>
+    <servlet-class>com.example.servlet.quick_start.QuickStart_Servlet</servlet-class>
+    <init-param>
+      <!-- 自定义的初始化值，自定义的初始化参数可以有多个 -->
+      <param-name>custom_value1</param-name>
+      <param-value>1234567890</param-value>
+    </init-param>
+    <init-param>
+      <param-name>custom_value2</param-name>
+      <param-value>0987654321</param-value>
+    </init-param>
+    <!-- 定义加载 -->
+    <load-on-startup>1</load-on-startup>
+  </servlet>
+  <servlet>
+    <servlet-name>QuickStart_HttpServlet</servlet-name>
+    <servlet-class>com.example.servlet.quick_start.QuickStart_HttpServlet</servlet-class>
+    <load-on-startup>2</load-on-startup>
+  </servlet>
+
+  <servlet>
+    <servlet-name>Demo_ServletConfig</servlet-name>
+    <servlet-class>com.example.servlet.servlet_config.Demo_ServletConfig</servlet-class>
+    <init-param>
+      <param-name>custom_encoding</param-name>
+      <param-value>UTF-8</param-value>
+    </init-param>
+  </servlet>
+  <servlet>
+    <servlet-name>Demo_ServletContext</servlet-name>
+    <servlet-class>com.example.servlet.servlet_context.Demo_ServletContext</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>CountServletDemo1</servlet-name>
+    <servlet-class>com.example.servlet.servlet_context.CountServletDemo1</servlet-class>
+    <load-on-startup>2</load-on-startup>
+  </servlet>
+  <servlet>
+    <servlet-name>CountServletDemo2</servlet-name>
+    <servlet-class>com.example.servlet.servlet_context.CountServletDemo2</servlet-class>
+  </servlet>
+
+  <!-- 读取资源文件 -->
+  <servlet>
+    <servlet-name>ReadServlet</servlet-name>
+    <servlet-class>com.example.servlet.servlet_read.Read_Servlet</servlet-class>
+  </servlet>
+
+  <!-- 根据绝对路径读取资源文件 -->
+  <servlet>
+    <servlet-name>ReadRealPathServlet</servlet-name>
+    <servlet-class>com.example.servlet.servlet_read.ReadRealPath_Servlet</servlet-class>
+  </servlet>
+
+  <!-- 缺省的Servlet -->
+  <servlet>
+    <servlet-name>DefaultServlet</servlet-name>
+    <servlet-class>com.example.servlet.servlet_default.Default_Servlet</servlet-class>
+  </servlet>
+
+  <!-- servlet-mapping必须放在servlet下面 -->
+  <servlet-mapping>
+    <servlet-name>QuickStart_Servlet</servlet-name>
+    <url-pattern>/quickStartServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>QuickStart_HttpServlet</servlet-name>
+    <!-- 配置访问路径（映射） -->
+    <!--
+      /xxx  /xxx/yyy        完全路径匹配 优先级最高
+      /*                    目录匹配
+      *.do  *.action  *.xxx 扩展名匹配(不能以/开头) 优先级最低
+
+      如果配置了/xxx又配置了/*或/的话，则会先访问/xxx对应的Servlet，在访问/*的Servlet或/的缺失Servlet
+    -->
+    <url-pattern>/quickStartHttpServlet</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>Demo_ServletConfig</servlet-name>
+    <url-pattern>/Demo_ServletConfig</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>Demo_ServletContext</servlet-name>
+    <url-pattern>/Demo_ServletContext</url-pattern>
+  </servlet-mapping>
+
+  <!-- 统计访问量 -->
+  <servlet-mapping>
+    <servlet-name>CountServletDemo1</servlet-name>
+    <url-pattern>/visitCount</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>CountServletDemo2</servlet-name>
+    <url-pattern>/showCount</url-pattern>
+  </servlet-mapping>
+
+  <!-- 读取资源文件 -->
+  <servlet-mapping>
+    <servlet-name>ReadServlet</servlet-name>
+    <url-pattern>/readServlet</url-pattern>
+  </servlet-mapping>
+
+  <!-- 根据绝对路径读取资源文件 -->
+  <servlet-mapping>
+    <servlet-name>ReadRealPathServlet</servlet-name>
+    <url-pattern>/readRealPathServlet</url-pattern>
+  </servlet-mapping>
+
+  <!-- 缺省的Servlet -->
+  <servlet-mapping>
+    <servlet-name>DefaultServlet</servlet-name>
+    <url-pattern>/</url-pattern>
+  </servlet-mapping>
+  
+</web-app>

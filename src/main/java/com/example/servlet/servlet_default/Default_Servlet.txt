@@ -1,0 +1,23 @@
+在tomcat根目录下的conf配置目录下的web.xml配置文件中有一个缺省的Servlet
+
+<servlet>
+    <servlet-name>default</servlet-name>
+    <servlet-class>org.apache.catalina.servlets.DefaultServlet</servlet-class>
+    <init-param>
+        <param-name>debug</param-name>
+        <param-value>0</param-value>
+    </init-param>
+    <init-param>
+        <param-name>listings</param-name>
+        <param-value>false</param-value>
+    </init-param>
+    <load-on-startup>1</load-on-startup>
+</servlet>
+
+<servlet-mapping>
+    <servlet-name>default</servlet-name>
+    <url-pattern>/</url-pattern>
+</servlet-mapping>
+
+默认路由为/  当我们访问web应用中的静态资源时访问的就是缺省的Servlet
+如果我们在自己的项目中的web.xml中定义了/路由，则会覆盖这个default

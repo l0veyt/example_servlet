@@ -9,6 +9,8 @@
     </init-param>
     <init-param>
         <param-name>listings</param-name>
+
+        // 如果设置为true，则在访问服务器时，可以在浏览器中像资源管理器那样查看服务器中的文件
         <param-value>false</param-value>
     </init-param>
     <load-on-startup>1</load-on-startup>
